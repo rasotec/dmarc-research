@@ -1,0 +1,14 @@
+[Unit]
+Description=Clouddns service
+After=network.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/clouddns
+Restart=on-failure
+RestartSec=5
+Type=simple
+ExecStart=/usr/local/bin/runner.sh
+
+[Install]
+WantedBy=multi-user.target
